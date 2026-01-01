@@ -36,7 +36,9 @@ dashstack/
 │   └── utils.ts               # Utility functions
 ├── types/
 │   └── index.ts               # TypeScript type definitions
-├── public/                     # Static assets (images, icons)
+├── public/                     # Static assets
+│   ├── images/                # ✨ Properly structured images (logos, avatars, banners)
+│   └── icons/                 # ✨ Properly structured SVG icons
 └── hooks/                      # Custom React hooks
 ```
 
@@ -45,22 +47,26 @@ dashstack/
 This project follows Next.js best practices by using **Server Components by default** and **Client Components only when necessary**.
 
 ### Server Components (Default)
+
 - `app/page.tsx` - Dashboard page
 - `app/components/DashboardStats.tsx` - Statistics cards
 - `app/components/DealsTable.tsx` - Deals table
 
 **Why Server Components?**
+
 - Better performance (less JavaScript sent to client)
 - Direct database/API access (if needed)
 - Improved SEO
 - Automatic code splitting
 
 ### Client Components (Explicit "use client")
+
 - `app/components/Header.tsx` - Uses interactive dropdowns and search
 - `app/components/Sidebar.tsx` - Uses `usePathname` hook for active state
 - `app/components/SalesChart.tsx` - Uses Recharts (requires DOM manipulation)
 
 **Why Client Components?**
+
 - **Header**: Contains interactive elements (dropdowns, search input)
 - **Sidebar**: Uses Next.js `usePathname()` hook to highlight active route
 - **SalesChart**: Recharts library requires client-side rendering for interactivity
@@ -68,12 +74,14 @@ This project follows Next.js best practices by using **Server Components by defa
 ## 🗂️ Data Architecture
 
 All static data is:
+
 - **Centralized** in `lib/data/` directory
 - **Strongly typed** using TypeScript interfaces in `types/index.ts`
 - **Reusable** across components
 - **Well-documented** with JSDoc comments
 
 Example:
+
 ```typescript
 // types/index.ts
 export interface DashboardStat {
@@ -93,7 +101,8 @@ export const dashboardStats: DashboardStat[] = [
 ## 🛠️ Getting Started
 
 ### Prerequisites
-- Node.js 20+ 
+
+- Node.js 20+
 - npm, yarn, or pnpm
 
 ### Installation

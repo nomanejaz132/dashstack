@@ -31,7 +31,7 @@ export function Header() {
         
         <div className="relative w-96 hidden md:block">
           <Image 
-            src="/SearchIcon.svg" 
+            src="/icons/SearchIcon.svg" 
             alt="Search" 
             width={16} 
             height={16} 
@@ -49,7 +49,7 @@ export function Header() {
       <div className="flex items-center gap-4 md:gap-6">
         {/* Notification */}
         <Button variant="ghost" size="icon" className="relative text-gray-500 hover:text-blue-600 cursor-pointer hover:cursor-pointer">
-           <Image src="/BellIcon.svg" alt="Notifications" width={20} height={20} className="h-5 w-5" />
+           <Image src="/icons/BellIcon.svg" alt="Notifications" width={20} height={20} className="h-5 w-5" />
            <Badge className="absolute -right-1 -top-1 px-1.5 py-0.5 text-xs bg-red-500 hover:bg-red-600 border-none min-w-[18px] h-[18px] flex items-center justify-center">
              6
            </Badge>
@@ -60,7 +60,7 @@ export function Header() {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="flex items-center gap-2 px-0 hover:bg-transparent cursor-pointer hover:cursor-pointer">
               <div className="h-5 w-8 overflow-hidden rounded-sm">
-                  <Image src="/UKFlag.png" alt="UK" width={32} height={20} className="h-full w-full object-cover" /> 
+                  <Image src="/images/UKFlag.png" alt="UK" width={32} height={20} className="h-full w-full object-cover" /> 
               </div>
               <span className="hidden text-sm font-medium text-gray-700 md:block dark:text-gray-300">English</span>
               <ChevronDown className="h-4 w-4 text-gray-500" />
@@ -78,7 +78,7 @@ export function Header() {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="flex items-center gap-3 pl-0 hover:bg-transparent cursor-pointer hover:cursor-pointer">
                <Avatar>
-                <AvatarImage src="/UserAvatar.png" alt="Moni Roy" />
+                <AvatarImage src="/images/UserAvatar.png" alt="Moni Roy" />
                 <AvatarFallback>MR</AvatarFallback>
               </Avatar>
               <div className="hidden text-left md:block">

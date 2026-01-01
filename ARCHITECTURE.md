@@ -11,17 +11,20 @@ DashStack is built following Next.js 16 App Router best practices with a strong 
 **Default to Server Components** - Components are Server Components unless they explicitly need client-side features.
 
 #### Server Components
+
 - `app/page.tsx` - Main dashboard page
 - `app/components/DashboardStats.tsx` - Statistics display
 - `app/components/DealsTable.tsx` - Data table
 
 **Benefits:**
+
 - Reduced JavaScript bundle size
 - Faster initial page load
 - Better SEO
 - Direct access to backend resources (if needed)
 
 #### Client Components
+
 Components marked with `"use client"` directive:
 
 1. **`app/components/Sidebar.tsx`**
@@ -52,6 +55,7 @@ types/
 ```
 
 **Benefits:**
+
 - Compile-time type checking
 - Better IDE autocomplete
 - Self-documenting code
@@ -70,18 +74,24 @@ lib/data/
 ```
 
 **Pattern:**
+
 ```typescript
 // 1. Define type
-export interface DashboardStat { /* ... */ }
+export interface DashboardStat {
+  /* ... */
+}
 
 // 2. Create data file
-export const dashboardStats: DashboardStat[] = [/* ... */];
+export const dashboardStats: DashboardStat[] = [
+  /* ... */
+];
 
 // 3. Import in component
 import { dashboardStats } from "@/lib/data/stats";
 ```
 
 **Benefits:**
+
 - Single source of truth
 - Easy to update and maintain
 - Type-safe data access
@@ -105,6 +115,7 @@ components/ui/          # Reusable UI primitives (Shadcn)
 ```
 
 **Naming Conventions:**
+
 - PascalCase for component files
 - Descriptive names indicating purpose
 - Export named functions (not default)
@@ -130,6 +141,7 @@ components/ui/          # Reusable UI primitives (Shadcn)
 ```
 
 **Approach:**
+
 - Utility-first with Tailwind
 - Custom design tokens for brand colors
 - Consistent spacing scale
@@ -138,19 +150,31 @@ components/ui/          # Reusable UI primitives (Shadcn)
 ### 6. Code Quality Tools
 
 #### ESLint
+
 - Next.js recommended config
 - TypeScript support
 - Automatic on save (if configured)
 
 #### Prettier
+
 - Consistent code formatting
 - Tailwind class sorting plugin
 - Runs on `npm run format`
 
 #### TypeScript
+
 - Strict mode enabled
 - No implicit any
 - Path aliases (`@/*`)
+
+### 7. Asset Management
+
+Static assets are organized for scalability and performance:
+
+- **`/public/icons/`**: Centralized SVG icons for navigation and UI elements.
+- **`/public/images/`**: Optimized images, logos, and avatars.
+- **`next/image`**: Always used for automatic image optimization, lazy loading, and layout stability.
+- **SVGs**: Preferred for icons and logos to ensure crispness and small bundle size.
 
 ## Data Flow
 
@@ -191,6 +215,7 @@ components/ui/          # Reusable UI primitives (Shadcn)
 ## Future Scalability
 
 The architecture supports:
+
 - **API Integration** - Server Components can fetch data directly
 - **Database Access** - Server-side data fetching
 - **Authentication** - Server-side session management

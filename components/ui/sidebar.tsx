@@ -274,7 +274,7 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <Image src="/MenuIcon.svg" alt="Toggle Sidebar" width={24} height={24} className="h-6 w-6" />
+      <Image src="/icons/MenuIcon.svg" alt="Toggle Sidebar" width={24} height={24} className="h-6 w-6" />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )

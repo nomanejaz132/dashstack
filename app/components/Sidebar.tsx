@@ -33,7 +33,7 @@ function Sidebar() {
     <ShadcnSidebar>
       <SidebarHeader className="h-17.5 justify-center">
          <div className="flex justify-center w-full px-4">
-            <Image src="/DashStack.png" alt="DashStack" width={129} height={27} priority />
+            <Image src="/images/DashStackLogo.svg" alt="DashStack" width={129} height={27} priority />
          </div>
       </SidebarHeader>
       <SidebarContent>

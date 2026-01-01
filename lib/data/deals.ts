@@ -13,7 +13,7 @@ export const deals: Deal[] = [
     amount: "$34,295",
     status: "Delivered",
     statusColor: "bg-[#00B69B]",
-    image: "/AppleWatch.png",
+    image: "/images/AppleWatch.png",
   },
   {
     product: "Apple Watch",
@@ -23,7 +23,7 @@ export const deals: Deal[] = [
     amount: "$34,295",
     status: "Pending",
     statusColor: "bg-[#FCBE2D]",
-    image: "/AppleWatch.png",
+    image: "/images/AppleWatch.png",
   },
   {
     product: "Apple Watch",
@@ -33,6 +33,6 @@ export const deals: Deal[] = [
     amount: "$34,295",
     status: "Rejected",
     statusColor: "bg-[#FD5454]",
-    image: "/AppleWatch.png",
+    image: "/images/AppleWatch.png",
   },
 ];
