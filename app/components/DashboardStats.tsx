@@ -1,6 +1,8 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+
+import { Card, CardContent } from "@/components/ui";
+
 import { dashboardStats } from "@/lib/data/stats";
 
 export function DashboardStats() {

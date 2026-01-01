@@ -17,7 +17,7 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarSeparator,
-} from "@/components/ui/sidebar";
+} from "@/components/ui";
 import { mainNavItems, pageNavItems, bottomNavItems } from "@/lib/data/navigation";
 
 /**

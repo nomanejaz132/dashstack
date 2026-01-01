@@ -1,6 +1,4 @@
-import { DashboardStats } from "./components/DashboardStats";
-import { SalesChart } from "./components/SalesChart";
-import { DealsTable } from "./components/DealsTable";
+import { DashboardStats, SalesChart, DealsTable } from "@/app/components";
 
 export default function Home() {
   return (
