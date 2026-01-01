@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Nunito_Sans } from "next/font/google";
 import "./globals.css";
+import { Sidebar } from "./components";
+import { Header } from "./components/Header";
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -9,6 +12,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const nunitoSans = Nunito_Sans({
+  variable: "--font-nunito-sans",
   subsets: ["latin"],
 });
 
@@ -25,9 +33,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${nunitoSans.variable} antialiased`}
       >
-        {children}
+        <SidebarProvider>
+          <Sidebar />
+          <SidebarInset>
+            <Header />
+            <main className="flex-1 overflow-y-auto bg-[#F5F6FA] p-7.5 dark:bg-gray-900/50">
+              {children}
+            </main>
+          </SidebarInset>
+        </SidebarProvider>
       </body>
     </html>
   );
