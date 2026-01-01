@@ -34,6 +34,8 @@ import { salesData } from "@/lib/data/chart";
  * for interactive chart functionality and DOM manipulation.
  */
 export function SalesChart() {
+  const [tooltipPos, setTooltipPos] = React.useState<{ x: number, y: number } | null>(null);
+
   return (
     <Card className="shadow-none border-none drop-shadow-[6px_6px_54px_0px_rgba(0,0,0,0.05)] w-full overflow-hidden">
       <CardHeader className="flex flex-row items-center justify-between p-4 desktop:p-6">
@@ -60,6 +62,17 @@ export function SalesChart() {
                 left: 20,
                 bottom: 5,
               }}
+              onMouseMove={(state) => {
+                if (state.activeCoordinate) {
+                  setTooltipPos({
+                    x: state.activeCoordinate.x,
+                    y: state.activeCoordinate.y
+                  });
+                } else {
+                  setTooltipPos(null);
+                }
+              }}
+              onMouseLeave={() => setTooltipPos(null)}
             >
               <defs>
                 <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
@@ -83,11 +96,12 @@ export function SalesChart() {
               />
               <Tooltip 
                 cursor={{ stroke: '#DFE0EB', strokeWidth: 1, strokeDasharray: '3 3' }}
+                position={tooltipPos ? { x: tooltipPos.x, y: tooltipPos.y - 40 } : undefined}
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
                     return (
-                      <div className="bg-[#4880FF] text-white text-[12px] font-bold px-3 py-1 rounded-md shadow-sm">
-                        {`${payload[0].value}%`}
+                      <div className="relative -translate-x-1/2 bg-[#5E77FF] text-white text-[12px] font-bold px-3 py-1 rounded-[2px] shadow-sm select-none after:absolute after:left-1/2 after:-bottom-1 after:h-2 after:w-2 after:-translate-x-1/2 after:rotate-45 after:bg-[#5E77FF] after:content-['']">
+                        {`${(payload[0].value * 1234.56).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
                       </div>
                     );
                   }
@@ -101,7 +115,7 @@ export function SalesChart() {
                 stroke="#4379EE"
                 strokeWidth={2}
                 dot={{ r: 4, fill: "#4379EE", strokeWidth: 0 }}
-                activeDot={{ r: 6, strokeWidth: 0 }}
+                activeDot={{ r: 6, fill: "#4379EE", strokeWidth: 0 }}
               />
               {/* This is a visual hack to match the screenshot's specific tooltip style if needed, but Recharts tooltip is default enough */}
             </ComposedChart>
