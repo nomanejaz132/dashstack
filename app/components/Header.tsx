@@ -12,9 +12,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { SidebarTrigger } from '@/components/ui/sidebar';
+} from "@/components/ui/dropdown-menu";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
+/**
+ * Header Component
+ *
+ * Client Component - Contains interactive elements (dropdowns, search input)
+ * and uses the SidebarTrigger which requires client-side interactivity.
+ */
 export function Header() {
   return (
     <header className="sticky top-0 z-10 flex h-17.5 items-center justify-between border-b bg-white px-6 dark:bg-gray-950">

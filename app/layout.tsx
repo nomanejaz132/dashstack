@@ -34,6 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${nunitoSans.variable} antialiased`}
+        suppressHydrationWarning
       >
         <SidebarProvider>
           <Sidebar />

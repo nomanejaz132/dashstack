@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 import {
   LineChart,
   Line,
@@ -18,31 +18,16 @@ import {
   Tooltip,
   ResponsiveContainer,
   Area,
-  ComposedChart
-} from 'recharts';
+  ComposedChart,
+} from "recharts";
+import { salesData } from "@/lib/data/chart";
 
-const data = [
-  { name: '5k', value: 20 },
-  { name: '10k', value: 45 },
-  { name: '15k', value: 30 },
-  { name: '20k', value: 50 }, // Spike
-  { name: '22k', value: 85, active: true }, // Peak
-  { name: '25k', value: 40 },
-  { name: '30k', value: 55 },
-  { name: '35k', value: 58 },
-  { name: '35k', value: 25 }, // Dip
-  { name: '40k', value: 32 },
-  { name: '40k', value: 28 }, 
-  { name: '45k', value: 70 },
-  { name: '45k', value: 60 },
-  { name: '50k', value: 65 },
-  { name: '55k', value: 55 },
-  { name: '55k', value: 58 },
-  { name: '60k', value: 45 },
-  { name: '65k', value: 55 },
-  { name: '70k', value: 50 },
-];
-
+/**
+ * SalesChart Component
+ *
+ * Client Component - Uses recharts library which requires client-side rendering
+ * for interactive chart functionality and DOM manipulation.
+ */
 export function SalesChart() {
   return (
     <Card className="col-span-4 shadow-none border-none drop-shadow-[6px_6px_54px_0px_rgba(0,0,0,0.05)]">
@@ -63,7 +48,7 @@ export function SalesChart() {
         <div className="h-[300px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <ComposedChart
-              data={data}
+              data={salesData}
               margin={{
                 top: 20,
                 right: 30,

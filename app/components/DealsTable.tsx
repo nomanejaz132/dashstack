@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Table,
   TableBody,
@@ -6,50 +6,18 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+} from "@/components/ui/table";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from '@/components/ui/select';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-
-const deals = [
-  {
-    product: 'Apple Watch',
-    location: '6096 Marjolaine Landing',
-    date: '12.09.2019 - 12.53 PM',
-    piece: 423,
-    amount: '$34,295',
-    status: 'Delivered',
-    statusColor: 'bg-[#00B69B]', 
-    image: '/AppleWatch.png'
-  },
-  {
-    product: 'Apple Watch',
-    location: '6096 Marjolaine Landing',
-    date: '12.09.2019 - 12.53 PM',
-    piece: 423,
-    amount: '$34,295',
-    status: 'Pending',
-    statusColor: 'bg-[#FCBE2D]', 
-    image: '/AppleWatch.png'
-  },
-  {
-    product: 'Apple Watch',
-    location: '6096 Marjolaine Landing',
-    date: '12.09.2019 - 12.53 PM',
-    piece: 423,
-    amount: '$34,295',
-    status: 'Rejected',
-    statusColor: 'bg-[#FD5454]', 
-    image: '/AppleWatch.png'
-  },
-];
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { deals } from "@/lib/data/deals";
 
 export function DealsTable() {
   return (

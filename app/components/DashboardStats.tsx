@@ -1,58 +1,12 @@
-import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import Image from 'next/image';
-
-const stats = [
-  {
-    label: 'Total User',
-    value: '40,689',
-    change: '8.5%',
-    trend: 'up',
-    trendText: 'Up from yesterday',
-    icon: '/User.svg',
-    iconBg: 'bg-[#8280FF]/20',
-    iconColor: 'text-purple-600',
-    chartColor: 'text-green-500', 
-  },
-  {
-    label: 'Total Order',
-    value: '10293',
-    change: '1.3%',
-    trend: 'up',
-    trendText: 'Up from past week',
-    icon: '/Orders.svg',
-    iconBg: 'bg-[#FEC53D]/20',
-    iconColor: 'text-yellow-600',
-    chartColor: 'text-green-500',
-  },
-  {
-    label: 'Total Sales',
-    value: '$89,000',
-    change: '4.3%',
-    trend: 'down',
-    trendText: 'Down from yesterday',
-    icon: '/Sales.svg',
-    iconBg: 'bg-[#00C898]/20',
-    iconColor: 'text-green-600',
-    chartColor: 'text-red-500',
-  },
-  {
-    label: 'Total Pending',
-    value: '2040',
-    change: '1.8%',
-    trend: 'up',
-    trendText: 'Up from yesterday',
-    icon: '/Pending.svg',
-    iconBg: 'bg-[#FF8C00]/20',
-    iconColor: 'text-orange-600',
-    chartColor: 'text-green-500',
-  },
-];
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import { dashboardStats } from "@/lib/data/stats";
 
 export function DashboardStats() {
   return (
     <div className="grid gap-7.5 md:grid-cols-2 lg:grid-cols-4">
-      {stats.map((stat, index) => (
+      {dashboardStats.map((stat, index) => (
         <Card key={index} className="border-none shadow-none drop-shadow-[6px_6px_54px_0px_rgba(0,0,0,0.05)]">
             <CardContent className="p-4">
                 <div className="flex justify-between items-start">

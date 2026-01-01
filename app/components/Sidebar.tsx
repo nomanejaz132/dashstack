@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
   Sidebar as ShadcnSidebar,
@@ -17,33 +17,15 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarSeparator,
-} from '@/components/ui/sidebar';
+} from "@/components/ui/sidebar";
+import { mainNavItems, pageNavItems, bottomNavItems } from "@/lib/data/navigation";
 
-const navItems = [
-  { label: 'Dashboard', icon: '/DashboardIcon.svg', href: '/' },
-  { label: 'Products', icon: '/ProductsIcon.svg', href: '/products' },
-  { label: 'Favorites', icon: '/FavoritesIcon.svg', href: '/favorites' },
-  { label: 'Inbox', icon: '/InboxIcon.svg', href: '/inbox' },
-  { label: 'Order Lists', icon: '/OrderListsIcon.svg', href: '/orders' },
-  { label: 'Product Stock', icon: '/ProductStockIcon.svg', href: '/stock' },
-];
-
-const pageItems = [
-  { label: 'Pricing', icon: '/PricingIcon.svg', href: '/pricing' },
-  { label: 'Calender', icon: '/CalenderIcon.svg', href: '/calendar' },
-  { label: 'To-Do', icon: '/TodoIcon.svg', href: '/todo' },
-  { label: 'Contact', icon: '/ContactIcon.svg', href: '/contact' },
-  { label: 'Invoice', icon: '/InvoiceIcon.svg', href: '/invoice' },
-  { label: 'UI Elements', icon: '/UIElementsIcon.svg', href: '/ui-elements' },
-  { label: 'Team', icon: '/TeamIcon.svg', href: '/team' },
-  { label: 'Table', icon: '/TableIcon.svg', href: '/table' },
-];
-
-const bottomItems = [
-  { label: 'Settings', icon: '/SettingsIcon.svg', href: '/settings' },
-  { label: 'Logout', icon: '/LogoutIcon.svg', href: '/logout' },
-];
-
+/**
+ * Sidebar Component
+ * 
+ * Client Component - Uses usePathname hook from next/navigation to determine
+ * active route and highlight the corresponding navigation item.
+ */
 function Sidebar() {
   const pathname = usePathname();
 
@@ -58,7 +40,7 @@ function Sidebar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              {navItems.map((item) => {
+              {mainNavItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
                     <SidebarMenuItem key={item.label}>
@@ -92,7 +74,7 @@ function Sidebar() {
           <SidebarGroupLabel>Pages</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {pageItems.map((item) => {
+              {pageNavItems.map((item) => {
                  const isActive = pathname === item.href;
                  return (
                     <SidebarMenuItem key={item.label}>
@@ -124,7 +106,7 @@ function Sidebar() {
 
         <SidebarGroup>
           <SidebarMenu>
-          {bottomItems.map((item) => {
+          {bottomNavItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <SidebarMenuItem key={item.label}>
