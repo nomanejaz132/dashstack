@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
@@ -25,14 +27,16 @@ import {
  * and uses the SidebarTrigger which requires client-side interactivity.
  */
 export function Header() {
+  const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+
   return (
-    <header className="sticky top-0 z-10 flex h-17.5 items-center justify-between border-b bg-white px-6 dark:bg-gray-950">
+    <header className="sticky top-0 z-10 flex h-17.5 items-center justify-between border-b bg-white px-4 desktop:px-6 dark:bg-gray-950">
       {/* Left side: Sidebar Trigger & Search */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 desktop:gap-4">
         <SidebarTrigger className="-ml-2 cursor-pointer hover:cursor-pointer" />
-        {/* Custom Hamburger if SidebarTrigger isn't enough or design specifically requests separate */}
         
-        <div className="relative w-96 hidden md:block">
+        {/* Desktop Search */}
+        <div className="relative w-64 lg:w-96 hidden desktop:block">
           <Image 
             src="/icons/SearchIcon.svg" 
             alt="Search" 
@@ -46,12 +50,22 @@ export function Header() {
             className="w-full rounded-full bg-gray-100 pl-10 focus-visible:ring-1 focus-visible:ring-blue-600 dark:bg-gray-900" 
           />
         </div>
+
+        {/* Mobile Search Toggle */}
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="desktop:hidden"
+          onClick={() => setIsSearchOpen(!isSearchOpen)}
+        >
+          <Image src="/icons/SearchIcon.svg" alt="Search" width={20} height={20} className="h-5 w-5" />
+        </Button>
       </div>
 
       {/* Right side: Icons, Language, Profile */}
-      <div className="flex items-center gap-4 md:gap-6">
+      <div className="flex items-center gap-2 desktop:gap-6">
         {/* Notification */}
-        <Button variant="ghost" size="icon" className="relative text-gray-500 hover:text-blue-600 cursor-pointer hover:cursor-pointer">
+        <Button variant="ghost" size="icon" className="relative text-gray-500 hover:text-blue-600 cursor-pointer hover:cursor-pointer p-0 desktop:p-2">
            <Image src="/icons/BellIcon.svg" alt="Notifications" width={20} height={20} className="h-5 w-5" />
            <Badge className="absolute -right-1 -top-1 px-1.5 py-0.5 text-xs bg-red-500 hover:bg-red-600 border-none min-w-[18px] h-[18px] flex items-center justify-center">
              6
@@ -61,12 +75,12 @@ export function Header() {
         {/* Language Selector */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center gap-2 px-0 hover:bg-transparent cursor-pointer hover:cursor-pointer">
-              <div className="h-5 w-8 overflow-hidden rounded-sm">
+            <Button variant="ghost" className="flex items-center gap-1 desktop:gap-2 px-0 hover:bg-transparent cursor-pointer hover:cursor-pointer">
+              <div className="h-4 w-6 desktop:h-5 desktop:w-8 overflow-hidden rounded-sm">
                   <Image src="/images/UKFlag.png" alt="UK" width={32} height={20} className="h-full w-full object-cover" /> 
               </div>
-              <span className="hidden text-sm font-medium text-gray-700 md:block dark:text-gray-300">English</span>
-              <ChevronDown className="h-4 w-4 text-gray-500" />
+              <span className="hidden text-sm font-medium text-gray-700 desktop:block dark:text-gray-300">English</span>
+              <ChevronDown className="h-3 w-3 desktop:h-4 desktop:w-4 text-gray-500" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -79,21 +93,21 @@ export function Header() {
         {/* Profile */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center gap-3 pl-0 hover:bg-transparent cursor-pointer hover:cursor-pointer">
-               <Avatar>
+            <Button variant="ghost" className="flex items-center gap-2 desktop:gap-3 pl-0 hover:bg-transparent cursor-pointer hover:cursor-pointer">
+               <Avatar className="h-8 w-8 desktop:h-10 desktop:w-10">
                 <AvatarImage src="/images/UserAvatar.png" alt="Moni Roy" />
                 <AvatarFallback>MR</AvatarFallback>
               </Avatar>
-              <div className="hidden text-left md:block">
+              <div className="hidden text-left desktop:block">
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">Moni Roy</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Admin</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Admin</p>
               </div>
-               <div className="rounded-full border p-1 border-gray-200">
+               <div className="rounded-full border p-1 border-gray-200 hidden sm:block">
                   <ChevronDown className="h-3 w-3 text-gray-500" />
                </div>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" className="w-[200px]">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Profile</DropdownMenuItem>
@@ -103,6 +117,35 @@ export function Header() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+
+      {/* Mobile Search Overlay */}
+      {isSearchOpen && (
+        <div className="absolute inset-0 z-20 flex items-center bg-white px-4 desktop:hidden dark:bg-gray-950">
+          <div className="relative flex-1">
+            <Image 
+              src="/icons/SearchIcon.svg" 
+              alt="Search" 
+              width={16} 
+              height={16} 
+              className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+            />
+            <Input
+              autoFocus
+              type="search"
+              placeholder="Search"
+              className="w-full rounded-full bg-gray-100 pl-10 focus-visible:ring-1 focus-visible:ring-blue-600 dark:bg-gray-900" 
+            />
+          </div>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="ml-2"
+            onClick={() => setIsSearchOpen(false)}
+          >
+            Cancel
+          </Button>
+        </div>
+      )}
     </header>
   );
 }

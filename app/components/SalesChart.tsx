@@ -35,8 +35,8 @@ import { salesData } from "@/lib/data/chart";
  */
 export function SalesChart() {
   return (
-    <Card className="col-span-4 shadow-none border-none drop-shadow-[6px_6px_54px_0px_rgba(0,0,0,0.05)]">
-      <CardHeader className="flex flex-row items-center justify-between">
+    <Card className="shadow-none border-none drop-shadow-[6px_6px_54px_0px_rgba(0,0,0,0.05)] w-full overflow-hidden">
+      <CardHeader className="flex flex-row items-center justify-between p-4 desktop:p-6">
         <CardTitle className="text-lg font-bold">Sales Details</CardTitle>
         <Select defaultValue="october">
           <SelectTrigger className="w-fit">
@@ -49,8 +49,8 @@ export function SalesChart() {
           </SelectContent>
         </Select>
       </CardHeader>
-      <CardContent className="pl-0">
-        <div className="h-[300px] w-full">
+      <CardContent className="pl-0 pb-4">
+        <div className="h-[250px] desktop:h-[300px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <ComposedChart
               data={salesData}

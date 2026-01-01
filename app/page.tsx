@@ -2,12 +2,12 @@ import { DashboardStats, SalesChart, DealsTable } from "@/app/components";
 
 export default function Home() {
   return (
-    <div className="space-y-7.5">
-      <h1 className="text-[32px] font-bold tracking-tight text-[#202224]">Dashboard</h1>
+    <div className="space-y-4 desktop:space-y-7.5">
+      <h1 className="text-2xl desktop:text-[32px] font-bold tracking-tight text-[#202224]">Dashboard</h1>
       
       <DashboardStats />
       
-      <div className="grid gap-6">
+      <div className="grid gap-4 desktop:gap-6">
         <SalesChart />
         <DealsTable />
       </div>

@@ -7,7 +7,7 @@ import { dashboardStats } from "@/lib/data/stats";
 
 export function DashboardStats() {
   return (
-    <div className="grid gap-7.5 md:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 desktop:gap-7.5">
       {dashboardStats.map((stat, index) => (
         <Card key={index} className="border-none shadow-none drop-shadow-[6px_6px_54px_0px_rgba(0,0,0,0.05)]">
             <CardContent className="p-4">

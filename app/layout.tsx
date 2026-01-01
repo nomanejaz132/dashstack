@@ -41,7 +41,7 @@ export default function RootLayout({
           <Sidebar />
           <SidebarInset>
             <Header />
-            <main className="flex-1 overflow-y-auto bg-[#F5F6FA] p-7.5 dark:bg-gray-900/50">
+            <main className="flex-1 overflow-y-auto bg-[#F5F6FA] px-4 py-6 desktop:p-7.5 dark:bg-gray-900/50">
               {children}
             </main>
           </SidebarInset>
