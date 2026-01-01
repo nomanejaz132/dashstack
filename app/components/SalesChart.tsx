@@ -100,7 +100,7 @@ export function SalesChart() {
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
                     return (
-                      <div className="relative -translate-x-1/2 bg-[#5E77FF] text-white text-[12px] font-bold px-3 py-1 rounded-[2px] shadow-sm select-none after:absolute after:left-1/2 after:-bottom-1 after:h-2 after:w-2 after:-translate-x-1/2 after:rotate-45 after:bg-[#5E77FF] after:content-['']">
+                      <div className="relative -translate-x-1/2 bg-[#4880FF] text-white text-[12px] font-bold px-3 py-1 rounded-[2px] shadow-sm select-none after:absolute after:left-1/2 after:-bottom-1 after:h-2 after:w-2 after:-translate-x-1/2 after:rotate-45 after:bg-[#4880FF] after:content-['']">
                         {`${(payload[0].value * 1234.56).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
                       </div>
                     );
@@ -112,10 +112,10 @@ export function SalesChart() {
               <Line
                 type="linear"
                 dataKey="value"
-                stroke="#4379EE"
+                stroke="#4880FF"
                 strokeWidth={2}
-                dot={{ r: 4, fill: "#4379EE", strokeWidth: 0 }}
-                activeDot={{ r: 6, fill: "#4379EE", strokeWidth: 0 }}
+                dot={{ r: 4, fill: "#4880FF", strokeWidth: 0 }}
+                activeDot={{ r: 6, fill: "#4880FF", strokeWidth: 0 }}
               />
               {/* This is a visual hack to match the screenshot's specific tooltip style if needed, but Recharts tooltip is default enough */}
             </ComposedChart>
